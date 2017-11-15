@@ -6,10 +6,18 @@
 
 int main()
 {
-    int i;
+    //Declarations
+    int i, nombreLignes;
     Patient personne;
 
-    collecteDonnees(&personne.tab);
+    //Appels
+    nombreLignes = collecteDonnees(&personne.tab, &personne.tabPouls);
+
+    for(i=0; i<nombreLignes-1; i++){
+           printf("%d;%d \n", personne.tab[i].temps, personne.tab[i].bpm);            //On copie le contenu du tableau "tab" dans le tableau "tabpouls"
+        }
+
+    menu(&personne.tab, &personne.tabPouls, nombreLignes);
 
 return 0;
 }

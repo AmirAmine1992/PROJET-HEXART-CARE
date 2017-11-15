@@ -3,6 +3,6 @@
 
 #include "actions.h"
 
-void collecteDonnees(Battements *b);
+int collecteDonnees(Battements *b, Battements *bp);
 
 #endif // DONNEES_H_INCLUDED
