@@ -5,7 +5,7 @@
 
 void menu(){
 
-    int parametreAffichage, nbLedsAllumees = -1, ledAllumee = -1;
+    int parametreAffichage, n = -1;
 
         printf("Bonjour, Veuillez choisir les parametres d'affichage de vos Leds s'il vous plait :"
             "\n1 - Allumer toutes les LEDs"
@@ -17,51 +17,52 @@ void menu(){
 
         switch (parametreAffichage){
         case 1:
-            generation_ParamH(parametreAffichage, nbLedsAllumees, ledAllumee);
+            generation_ParamH(parametreAffichage, n);
             printf("\nVotre fichier est pret, bonne journee :D");
+            break;
         case 2:
 
-            while (nbLedsAllumees < 0){
+            while (n < 0){
                 printf("\nVeuillez entrer la valeur de n ( 2 - 10 ): ");
-                scanf("%d", &nbLedsAllumees);
-                if (nbLedsAllumees < 1 || nbLedsAllumees >= 10){
+                scanf("%d", &n);
+                if (n < 1 || n >= 10){
                     printf("\n Vous devez entrer une valeur comprise entre 2 et 10   !\n");
-                    nbLedsAllumees = -1;
+                    n = -1;
                 }
             }
-            generation_ParamH(parametreAffichage, nbLedsAllumees, ledAllumee);
+            generation_ParamH(parametreAffichage, n);
             printf("\nVotre fichier est pret, bonne journee :D");
             break;
         case 3:
 
-            while (ledAllumee < 0){
+            while (n < 0){
                 printf("\nChoisissez la Led a allumer ( entre 0 et 9 ) : \n");
-                scanf("%d", &ledAllumee);
+                scanf("%d", &n);
 
-                if (ledAllumee < 0 || ledAllumee > 9){
+                if (n < 0 || n > 9){
                     printf("\nVous devez entrer une valeur comprise entre 1 et 9 \n");
-                    ledAllumee = -1;
+                    n = -1;
                 }
             }
             printf("\nVotre fichier est pret, bonne journee :D");
-            generation_ParamH(parametreAffichage, nbLedsAllumees, ledAllumee);
+            generation_ParamH(parametreAffichage, n);
             break;
 
         case 4:
 
-            while (nbLedsAllumees < 0){
+            while (n < 0){
                 printf("\n1- Chenille Standard"
                        "\n2- Chenille Reversible"
-                       "\n3- Chenille Aleatoire\n");
-                scanf("%d", &nbLedsAllumees);
+                       "\n3- Chenille Separee\n");
+                scanf("%d", &n);
 
-                if (nbLedsAllumees < 1 || nbLedsAllumees > 3){
+                if (n < 1 || n > 3){
                     printf("\nVous devez entrer une valeur comprise entre 1 et 3 \n");
-                    nbLedsAllumees = -1;
+                    n = -1;
                 }
             }
             printf("\nVotre fichier est pret, bonne journee :D");
-            generation_ParamH(parametreAffichage, nbLedsAllumees, ledAllumee);
+            generation_ParamH(parametreAffichage, n);
             break;
 
         default:
