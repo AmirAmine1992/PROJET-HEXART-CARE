@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1510741558 source:c:\users\dell\documents\github\csvtraitement\main.c
+	<stdio.h>
+	<stdlib.h>
+	"donnees.h"
+	"actions.h"
+
+1510732432 source:c:\users\dell\documents\github\csvtraitement\actions.c
+	<stdio.h>
+	<stdlib.h>
+	"actions.h"
+
+1510741621 c:\users\dell\documents\github\csvtraitement\actions.h
+
+1510742132 source:c:\users\dell\documents\github\csvtraitement\donnees.c
+	<stdio.h>
+	<stdlib.h>
+	"actions.h"
+
+1510740597 source:c:\users\dell\documents\github\csvtraitement\menu.c
+	<stdio.h>
+	<stdlib.h>
+	"actions.h"
+
+1510739572 c:\users\dell\documents\github\csvtraitement\donnees.h
+	"actions.h"
+
