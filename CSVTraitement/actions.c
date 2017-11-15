@@ -64,7 +64,8 @@ void r_moyenne(Battements b[], int minn, int maxx, int nombreLignes){
 }
 
 void r_maxMin(Battements *b, int maxx, int nombreLignes ){
-    //tri
+
+    tri_insertion(b, nombreLignes);
     if (maxx == 2){
     printf("La plus grande fréquence cardiaque est à %dms et est de %dBPM\n", b[nombreLignes-2].temps, b[nombreLignes-2].bpm);
     }
@@ -73,10 +74,56 @@ void r_maxMin(Battements *b, int maxx, int nombreLignes ){
     }
 }
 
-void a_EnOrdre(Battements *b, int nombreLignes){
+void a_OrdreCrois(Battements *b, int nombreLignes){
     int i;
     for(i=0; i<nombreLignes-1; i++){
         printf("%d;%d\n", b[i].temps, b[i].bpm);
     }
+}
+void a_OrdreDec(Battements *b, int nombreLignes){
+    int i;
+    for(i=nombreLignes-1; i>0; i--){
+        printf("%d;%d\n", b[i].temps, b[i].bpm);
+    }
+}
 
+void tri_insertion(Battements *b, int n)
+{
+    int i, j;
+    int v, y;
+
+    for (i = 1; i < n; i++) {
+        v = b[i].temps; // On stocke les valeurs en i du tableau dans des variables temporaires
+        y = b[i].bpm;
+
+        j = i;
+        while (j > 0 && b[j - 1].bpm > y) {
+            b[j].bpm = b[j - 1].bpm;                // Décale les éléments situés avant t[i] vers la droite
+            b[j].temps = b[j - 1].temps;          // jusqu'à trouver la position d'insertion
+            j--;
+        }
+
+        b[j].temps = v; // Insertion de la valeur stockée à la place vacante
+        b[j].bpm = y;
+    }
+}
+
+void a_Tri(Battements *b, Battements *bp, int choixTri, int ordre, int nombreLignes){
+    if(choixTri == 1){
+        if(ordre == 1){
+            a_OrdreCrois(b, nombreLignes);
+        }
+        else{
+            a_OrdreDec(b, nombreLignes);
+        }
+    }
+    else if(choixTri == 2){
+        tri_insertion(bp, nombreLignes-1);
+        if(ordre == 1){
+            a_OrdreCrois(bp, nombreLignes);
+        }
+        else{
+            a_OrdreDec(bp, nombreLignes);
+        }
+    }
 }

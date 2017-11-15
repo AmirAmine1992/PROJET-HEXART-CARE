@@ -9,9 +9,9 @@ int collecteDonnees(Battements *b, Battements *bp){
 
     FILE* fichier = NULL;
     int i, nombreLignes = 0;
-    long indice;
+    int indice;
 
-    fichier = fopen("Battements.csv", "r+");
+    fichier = fopen("Battements.csv", "r");
 
     fseek(fichier, 0, SEEK_END); //On determine l'indice du dernier caractère du fichier
     indice = ftell(fichier);
@@ -19,7 +19,7 @@ int collecteDonnees(Battements *b, Battements *bp){
 
     if ( fichier != NULL){
 
-        while(ftell(fichier)!= indice){ // Tant qu'on est pas arrivés au dernier élément
+        while(ftell(fichier)!= indice){ // Tant qu'on n'est pas arrivés au dernier élément
             fscanf(fichier, "%d;%d",&b[nombreLignes].temps, &b[nombreLignes].bpm);  // On remplit le tableau "tab" de la structure personne
             nombreLignes++;
         }
