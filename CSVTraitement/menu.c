@@ -6,25 +6,32 @@
 
 void menu(Battements *b, Battements *bp, int nombreLignes){
 
-    int i, choix, temps, min, max, tmp;
+    int i, choix, temps, min, max, tmp, choixTri, ordre;
     while(1){
-    printf( "1 - Afficher les donnees dans l'ordre du fichier .csv \n"
-            "2 - Afficher les donnees en ordre croissant/decroissant (selon le temps, selon le pouls) \n"
-            "3 - Rechercher et afficher les donnees pour un temps particulier. \n"
-            "4 - Afficher la moyenne de pouls dans une plage de temps donnee. \n"
-            "5 - Afficher le nombre de lignes de donnees actuellement en memoire. \n"
-            "6 - Rechercher et afficher les max/min de pouls. \n\n");
+    printf( "***********************************************************************************************\n"
+            "***1 - Afficher les donnees dans l'ordre du fichier .csv                                    *** \n"
+            "***2 - Afficher les donnees en ordre croissant/decroissant (selon le temps, selon le pouls).*** \n"
+            "***3 - Rechercher et afficher les donnees pour un temps particulier.                        *** \n"
+            "***4 - Afficher la moyenne de pouls dans une plage de temps donnee.                         *** \n"
+            "***5 - Afficher le nombre de lignes de donnees actuellement en memoire.                     *** \n"
+            "***6 - Rechercher et afficher les max/min de pouls.                                         *** \n"
+            "*********************************************************************************************** \n");
 
     scanf("%d", &choix);
 
     switch(choix){
         case 1:
             printf("Le fichier csv:");
-            a_EnOrdre(b, nombreLignes);
+            a_OrdreCrois(b, nombreLignes);
             break;
         case 2:
-
-
+            printf("Voulez-vous afficher le tableau par rapport au: \n"
+                   "1-Temps, 2-Pouls ?\n");
+            scanf("%d", &choixTri);
+            printf("Voulez-vous afficher le tableau en ordre: \n"
+                   "1-Croissant, 2-Decroissant ?\n");
+            scanf("%d", &ordre);
+            a_Tri(b, bp, choixTri, ordre, nombreLignes);
             break;
         case 3:
             printf("\nVeuillez entrer le nombre de millisecondes\n ");
@@ -48,9 +55,9 @@ void menu(Battements *b, Battements *bp, int nombreLignes){
             r_moyenne(b, min, max, nombreLignes);
             break;
         case 6:
-            printf("\n Veuillez selectionner :\n");
-            printf("\n 1 - Recherche de la frequence minimale:\n");
-            printf("\n 2 - Recherche de la frequence maximale:\n");
+            printf("\nVeuillez selectionner :\n");
+            printf("\n1 - Recherche de la frequence minimale:\n");
+            printf("\n2 - Recherche de la frequence maximale:\n");
             scanf("%d", &max);
             r_maxMin(b, max, nombreLignes);
             break;
