@@ -3,6 +3,7 @@
 
 #include "actions.h"
 
-int collecteDonnees(Battements *b, Battements *bp);
+int collecteDonnees(Patient *personne);
+void initialise(Patient *personne, Tmp *temp, int nombreLignes);
 
 #endif // DONNEES_H_INCLUDED

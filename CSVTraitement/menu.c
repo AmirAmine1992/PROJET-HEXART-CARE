@@ -4,9 +4,9 @@
 
 #include "actions.h"
 
-void menu(Battements *b, Battements *bp, int nombreLignes){
+int menu(Battements *b, Battements *bp, int nombreLignes){
 
-    int i, choix, temps, min, max, tmp, choixTri, ordre;
+    int choix, temps, min, max, tmp, choixTri, ordre;
     while(1){
     printf( "***********************************************************************************************\n"
             "***1 - Afficher les donnees dans l'ordre du fichier .csv                                    *** \n"
@@ -21,7 +21,7 @@ void menu(Battements *b, Battements *bp, int nombreLignes){
 
     switch(choix){
         case 1:
-            printf("Le fichier csv:");
+            printf("\nLe fichier csv: \n\n");
             a_OrdreCrois(b, nombreLignes);
             break;
         case 2:
@@ -34,7 +34,7 @@ void menu(Battements *b, Battements *bp, int nombreLignes){
             a_Tri(b, bp, choixTri, ordre, nombreLignes);
             break;
         case 3:
-            printf("\nVeuillez entrer le nombre de millisecondes\n ");
+            printf("\nVeuillez entrer le nombre de millisecondes\n");
             scanf("%d", &temps);
             r_temps(b, temps, nombreLignes);
             break;
@@ -47,8 +47,8 @@ void menu(Battements *b, Battements *bp, int nombreLignes){
             scanf("%d", &min);
             printf("Deuxieme temps: ");
             scanf("%d", &max);
-            if(min>max){
-                    max = tmp;
+            if(min>max){  //Si le deuxieme temps est inferieur au premier, on échange les deux temps
+                    tmp = max;
                     max = min;
                     min = tmp;
                 }
@@ -61,6 +61,11 @@ void menu(Battements *b, Battements *bp, int nombreLignes){
             scanf("%d", &max);
             r_maxMin(b, max, nombreLignes);
             break;
+        case 0:
+            free(b); //On libére l'espace mémoire alloué au début du programme
+            return 0;
+            break;
+
         }
     }
 }

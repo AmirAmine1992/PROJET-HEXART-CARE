@@ -33,7 +33,7 @@ int r_dichotomique(Battements *b, int nombreCases, int valeurRecherche ){
 }
 
 void r_temps(Battements *b, int temps, int nombreLignes){
-    int indice = r_dichotomique(b, MAX, temps); //On recherche l'indice du temps dans le tableau de structures
+    int indice = r_dichotomique(b, nombreLignes, temps); //On recherche l'indice du temps dans le tableau de structures
 
     if (indice!=-1){ // Si on trouve un element
         printf("Temps : %dms , Frequence Cardiaque : %dBPM\n", b[indice].temps, b[indice].bpm); //On affiche le temps et les BPM
@@ -63,28 +63,29 @@ void r_moyenne(Battements b[], int minn, int maxx, int nombreLignes){
     }
 }
 
-void r_maxMin(Battements *b, int maxx, int nombreLignes ){
+void r_maxMin(Battements *bp, int maxx, int nombreLignes ){
 
-    tri_insertion(b, nombreLignes);
+    tri_insertion(bp, nombreLignes); // On trie le tableau pour avoir le plus petit element au premier indice et vice versa
     if (maxx == 2){
-    printf("La plus grande fréquence cardiaque est à %dms et est de %dBPM\n", b[nombreLignes-2].temps, b[nombreLignes-2].bpm);
+    printf("La plus grande fréquence cardiaque est à %dms et est de %dBPM\n", bp[nombreLignes-2].temps, bp[nombreLignes-2].bpm);
     }
     else if(maxx == 1){
-     printf("La plus petite fréquence cardiaque est à %dms et est de %dBPM\n", b[0].temps, b[0].bpm);
+     printf("La plus petite fréquence cardiaque est à %dms et est de %dBPM\n", bp[0].temps, bp[0].bpm);
     }
 }
 
 void a_OrdreCrois(Battements *b, int nombreLignes){
-    int i;
-    for(i=0; i<nombreLignes-1; i++){
+    int i, j;
+    for (i=0; i<nombreLignes-1; i++){
         printf("%d;%d\n", b[i].temps, b[i].bpm);
     }
 }
 void a_OrdreDec(Battements *b, int nombreLignes){
-    int i;
-    for(i=nombreLignes-1; i>0; i--){
+    int i, j;
+    for (i=nombreLignes-2; i>=0; i--){
         printf("%d;%d\n", b[i].temps, b[i].bpm);
     }
+
 }
 
 void tri_insertion(Battements *b, int n)
@@ -98,18 +99,19 @@ void tri_insertion(Battements *b, int n)
 
         j = i;
         while (j > 0 && b[j - 1].bpm > y) {
-            b[j].bpm = b[j - 1].bpm;                // Décale les éléments situés avant t[i] vers la droite
-            b[j].temps = b[j - 1].temps;          // jusqu'à trouver la position d'insertion
+            b[j].bpm = b[j - 1].bpm;         // On décale les éléments situés avant b[i] vers la droite
+            b[j].temps = b[j - 1].temps;    // jusqu'à trouver la position d'insertion
             j--;
         }
 
-        b[j].temps = v; // Insertion de la valeur stockée à la place vacante
+        b[j].temps = v; // Insertion de la valeur stockée
         b[j].bpm = y;
     }
 }
 
 void a_Tri(Battements *b, Battements *bp, int choixTri, int ordre, int nombreLignes){
-    if(choixTri == 1){
+
+    if(choixTri == 1){ //Affichage par Temps, aucun tri necessaire, on utilise le tableau original
         if(ordre == 1){
             a_OrdreCrois(b, nombreLignes);
         }
@@ -117,7 +119,7 @@ void a_Tri(Battements *b, Battements *bp, int choixTri, int ordre, int nombreLig
             a_OrdreDec(b, nombreLignes);
         }
     }
-    else if(choixTri == 2){
+    else if(choixTri == 2){ //Affichage par Pouls, on doit trier le tableau "tabPouls" en fonction du pouls.
         tri_insertion(bp, nombreLignes-1);
         if(ordre == 1){
             a_OrdreCrois(bp, nombreLignes);
