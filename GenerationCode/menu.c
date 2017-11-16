@@ -13,7 +13,7 @@ void menu(){
             "\n3 - Allumer la Led de votre choix"
             "\n4 - Allumer les Leds en chenille\n");
 
-        scanf("%d", &parametreAffichage);
+        scanf("%d", &parametreAffichage); // On récupere le
 
         switch (parametreAffichage){
         case 1:

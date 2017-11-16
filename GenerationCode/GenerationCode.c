@@ -10,7 +10,4 @@ void generation_ParamH(int parametreAffichage, int n)
 	fichier = fopen("C:\\param.h", "w");
 
 	fprintf(fichier, "int parametreAffichage = %d, n = %d;\n", parametreAffichage, n);
-
-	fclose(fichier);
-
 }
