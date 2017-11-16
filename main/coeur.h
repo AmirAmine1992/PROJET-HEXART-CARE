@@ -3,7 +3,7 @@
 #define COEUR_H
 
 
-
+void AllumageCoeur(int paramAllu, int n);
 void set(void);
 void ChenilleSpecial(void);
 void Chenille(void);
