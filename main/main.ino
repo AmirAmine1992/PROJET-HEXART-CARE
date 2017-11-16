@@ -1,6 +1,6 @@
 #include "coeur.h"
 #include "arduino.h"
-
+#include "param.h"
 
 void setup (){
   
@@ -9,14 +9,11 @@ void setup (){
 
 }
 void loop (){
- ChenilleSpecial();
- Chenille();
- AllLed();
- ChenilleAmeliorer();
- ChenilleDouble();
 
-LedUnSur2();
-
+  switch(paramAllu)
+  {
+  }
+  
   
 }
 

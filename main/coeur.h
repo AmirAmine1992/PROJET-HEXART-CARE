@@ -10,7 +10,7 @@ void Chenille(void);
 void AllLed(void);
 void ChenilleAmeliorer(void);
 void ChenilleDouble(void);
-void LedUnSurN(int n);
+void LedUnSurN(int a);
 void LedUnSur2(void);
 #endif
 

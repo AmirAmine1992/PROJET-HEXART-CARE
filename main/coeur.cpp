@@ -61,12 +61,12 @@ void Chenille(void)
 
 
 
-void ChenilleAmeliorer(void)
+void ChenilleAmeliorer()
 {int i=0;
   for(i=4 ; i<=13 ; i++)
     {
       digitalWrite(i,HIGH);
-      delay(50);
+      delay(100);
       digitalWrite(i,LOW);
       digitalWrite(13,HIGH);
       delay(65);
@@ -220,14 +220,14 @@ void ChenilleDouble(void)
   delay(50);
 }
 
-void LedUnSurN(int n)
+void LedUnSurN(int a)
 {int i=0;
-  for( i = 0; i<=9; i=i+n){
+  for( i = 0; i<=9; i=i+a){
     digitalWrite(4+i, HIGH);
     
     }
      delay(1000);
-  for( i = 0; i<=9; i=i+n){
+  for( i = 0; i<=9; i=i+a){
     digitalWrite(4+i, LOW);
     }
     delay(500);
