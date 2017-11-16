@@ -1,1 +1,1 @@
-int paramAllu =4, n=2;
+int paramAllu =2, n=3;

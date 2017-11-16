@@ -12,6 +12,7 @@ void ChenilleAmeliorer(void);
 void ChenilleDouble(void);
 void LedUnSurN(int a);
 void LedUnSur2(void);
+void LedChoix(int n);
 #endif
 
 

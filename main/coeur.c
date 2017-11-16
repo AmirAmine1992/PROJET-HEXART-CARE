@@ -246,7 +246,13 @@ void LedUnSur2(void)
     delay(500);
 }
 
-
+void LedChoix(int a)
+{
+  digitalWrite(a+4, HIGH);
+  delay(50);
+  digitalWrite(a+4, LOW);
+  delay(25);
+}
 
 
 
