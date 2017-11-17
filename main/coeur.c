@@ -13,7 +13,7 @@ void ChenilleSpecial(void)
   {int i=4;
     digitalWrite(10,HIGH);
     digitalWrite(6,HIGH);
-    delay (250);
+    delay(250);
     digitalWrite(10,HIGH);
     digitalWrite(6,HIGH);
     delay(250);
@@ -89,12 +89,11 @@ void AllLed(void)
     {
       digitalWrite(i,HIGH);
     }
- delay(200);
+ delay(100);
   for(i=4 ; i<=13 ; i++)
     {
       digitalWrite(i,LOW);
-    }
- delay(500);     
+    }     
 }
 
 
@@ -110,7 +109,7 @@ void ChenilleDouble(void)
   digitalWrite(6, LOW);
   digitalWrite(5, LOW);                          
   digitalWrite(4, LOW);    
-  delay(50);   
+  delay(10);   
 
   digitalWrite(13, LOW);                          
   digitalWrite(12, LOW);
@@ -122,7 +121,7 @@ void ChenilleDouble(void)
   digitalWrite(6, LOW);
   digitalWrite(5, LOW);                          
   digitalWrite(4, LOW);    
-  delay(50);
+  delay(10);
 
   digitalWrite(13, LOW);                          
   digitalWrite(12, LOW);
@@ -134,7 +133,7 @@ void ChenilleDouble(void)
   digitalWrite(6, HIGH);
   digitalWrite(5, LOW);                          
   digitalWrite(4, LOW);    
-  delay(50);
+  delay(10);
 
   digitalWrite(13, LOW);                          
   digitalWrite(12, LOW);
@@ -146,7 +145,7 @@ void ChenilleDouble(void)
   digitalWrite(6, LOW);
   digitalWrite(5, HIGH);                          
   digitalWrite(4, LOW);    
-  delay(50);
+  delay(10);
 
   digitalWrite(13, LOW);                          
   digitalWrite(12, HIGH);
@@ -158,7 +157,7 @@ void ChenilleDouble(void)
   digitalWrite(6, LOW);
   digitalWrite(5, LOW);                          
   digitalWrite(4, HIGH);    
-  delay(50);
+  delay(10);
 
   digitalWrite(13, HIGH);                          
   digitalWrite(12, LOW);
@@ -170,7 +169,7 @@ void ChenilleDouble(void)
   digitalWrite(6, LOW);
   digitalWrite(5, LOW);                          
   digitalWrite(4, LOW);    
-  delay(500);
+  delay(10);
 
   digitalWrite(13, LOW);                          
   digitalWrite(12, HIGH);
@@ -182,7 +181,7 @@ void ChenilleDouble(void)
   digitalWrite(6, LOW);
   digitalWrite(5, LOW);                          
   digitalWrite(4, HIGH);    
-  delay(50);
+  delay(10);
 
   digitalWrite(13, LOW);                          
   digitalWrite(12, LOW);
@@ -194,7 +193,7 @@ void ChenilleDouble(void)
   digitalWrite(6, LOW);
   digitalWrite(5, HIGH);                          
   digitalWrite(4, LOW);    
-  delay(50);
+  delay(10);
 
   digitalWrite(13, LOW);                          
   digitalWrite(12, LOW);
@@ -206,7 +205,7 @@ void ChenilleDouble(void)
   digitalWrite(6, HIGH);
   digitalWrite(5, LOW);                          
   digitalWrite(4, LOW);    
-  delay(50);
+  delay(10);
 
   digitalWrite(13, LOW);                          
   digitalWrite(12, LOW);
@@ -218,7 +217,7 @@ void ChenilleDouble(void)
   digitalWrite(6, LOW);
   digitalWrite(5, LOW);                          
   digitalWrite(4, LOW);    
-  delay(50);
+  delay(10);
 }
 
 void LedUnSurN(int a)
@@ -255,6 +254,15 @@ void LedChoix(int a)
   delay(25);
 }
 
+
+void ledOff(void)
+{
+  int i=0;
+  for(i=4 ; i<=13 ; i++)
+    {
+      digitalWrite(i,LOW);
+    }
+}
 
 
 void AllumageCoeur(int paramAllu, int n)
