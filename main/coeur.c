@@ -1,4 +1,9 @@
-#include "coeur.h"
+
+
+// ce fichier contient toute les fonction qui controle le coeur de led
+
+
+#include "coeur.h"                       
 #include "arduino.h"
 
 void set(void)
@@ -49,7 +54,7 @@ void ChenilleSpecial(void)
 
 void Chenille(void)
 {int i=0;
-  for(i=4 ; i<=13 ; i++)
+  for(i=4 ; i<=13 ; i++)          // a chaque valeur de i une led s'allume puis s'eteint
     {
       digitalWrite(i,HIGH);
       delay(50);
@@ -64,7 +69,7 @@ void Chenille(void)
 
 void ChenilleAmeliorer()
 {int i=0;
-  for(i=4 ; i<=13 ; i++)
+  for(i=4 ; i<=13 ; i++)        //a chaque valeur de i une led s'allume puis s'eteint et une led reste allumée
     {
       digitalWrite(i,HIGH);
       delay(100);
@@ -82,7 +87,7 @@ void ChenilleAmeliorer()
 
 
 
-void AllLed(void)
+void AllLed(void)                  //toute les led s'allument puis s'eteignent en meme temps
 {
   int i=0;
   for(i=4 ; i<=13 ; i++)
@@ -97,7 +102,7 @@ void AllLed(void)
 }
 
 
-void ChenilleDouble(void)
+void ChenilleDouble(void)                         // une led s'allume puis s'eteint puis une chenille demare de chaque coté
 {
   digitalWrite(13, LOW);                          
   digitalWrite(12, LOW);
@@ -220,8 +225,8 @@ void ChenilleDouble(void)
   delay(10);
 }
 
-void LedUnSurN(int a)
-{int i=0;
+void LedUnSurN(int a)             //cette fonction prends en parametre un nombre "a" generer par le generateur de code 
+{int i=0;                         //une led s'allume parmi "a" led puis elles s'eteignent
   for( i = 0; i<=9; i=i+a){
     digitalWrite(4+i, HIGH);
     
@@ -233,18 +238,6 @@ void LedUnSurN(int a)
     delay(500);
 }
 
-void LedUnSur2(void)
-{int i=0;
-  for( i = 0; i<=9; i=i+2){
-    digitalWrite(4+i, HIGH);
-    
-    }
-     delay(1000);
-  for( i = 0; i<=9; i=i+2){
-    digitalWrite(4+i, LOW);
-    }
-    delay(500);
-}
 
 void LedChoix(int a)
 {
@@ -255,7 +248,7 @@ void LedChoix(int a)
 }
 
 
-void ledOff(void)
+void ledOff(void)     // cette fonction eteint toute les leds 
 {
   int i=0;
   for(i=4 ; i<=13 ; i++)
@@ -265,9 +258,9 @@ void ledOff(void)
 }
 
 
-void AllumageCoeur(int paramAllu, int n)
+void AllumageCoeur(int paramAllu, int n) //cette fonction prends en parametre deux constantes generer par le generateur de code dans param.h
 {
-  switch(paramAllu)
+  switch(paramAllu)                      //paramAllu controle le mode d'allumage selon le choix de l'utilisateur et n controle les leds de facon unitaire selon le choix de l'utilisateur
   {
     case 1:
       AllLed();
@@ -283,7 +276,7 @@ void AllumageCoeur(int paramAllu, int n)
 
       
     case 4:
-      switch(n)
+      switch(n)                        //dans ce cas n controle le sous-mode d'allumage
         {
           case 1:
            Chenille();
