@@ -7,6 +7,7 @@ void set(void)
          pinMode(i, OUTPUT);
         i++;  
        }
+   
   }
 void ChenilleSpecial(void)
   {int i=4;
@@ -285,14 +286,13 @@ void AllumageCoeur(int paramAllu, int n)
            break;
 
           case 3:
-           ChenilleDouble();
+           ChenilleAmeliorer();
            break;
            
         
         }  
   }  
 }
-
 
 
 
