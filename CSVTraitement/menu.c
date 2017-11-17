@@ -15,6 +15,7 @@ int menu(Battements *b, Battements *bp, int nombreLignes){
             "***4 - Afficher la moyenne de pouls dans une plage de temps donnee.                         *** \n"
             "***5 - Afficher le nombre de lignes de donnees actuellement en memoire.                     *** \n"
             "***6 - Rechercher et afficher les max/min de pouls.                                         *** \n"
+            "***0 - Quitter l'application.                                                               *** \n"
             "*********************************************************************************************** \n");
 
     scanf("%d", &choix);
