@@ -14,52 +14,17 @@ void set(void)
        }
    
   }
-void ChenilleSpecial(void)
-  {int i=4;
-    digitalWrite(10,HIGH);
-    digitalWrite(6,HIGH);
-    delay(250);
-    digitalWrite(10,HIGH);
-    digitalWrite(6,HIGH);
-    delay(250);
-    digitalWrite(10,LOW);
-    digitalWrite(6,LOW);
-    digitalWrite(13,HIGH);
-    digitalWrite(8,HIGH);
-    delay(250);
-    digitalWrite(13,LOW);
-    digitalWrite(8,LOW);
-    delay(250);
-    digitalWrite(13,HIGH);
-    digitalWrite(8,HIGH);
-    delay(250);
-    digitalWrite(13,LOW);
-    digitalWrite(8,LOW);
-    delay(500);
 
-    for(i=4 ; i<=13 ; i++)
-    {
-      digitalWrite(i,HIGH);
-      delay(50);
-      digitalWrite(i,LOW);
-      delay(25);
-    }
-  }
-
-
-
-
-
-  
 
 void Chenille(void)
-{int i=0;
+{
+  int i=0;
   for(i=4 ; i<=13 ; i++)          // a chaque valeur de i une led s'allume puis s'eteint
     {
       digitalWrite(i,HIGH);
-      delay(50);
+      delay(10);
       digitalWrite(i,LOW);
-      delay(25);
+      
     }
 }
 
@@ -68,14 +33,15 @@ void Chenille(void)
 
 
 void ChenilleAmeliorer()
-{int i=0;
+{
+  int i=0;
   for(i=4 ; i<=13 ; i++)        //a chaque valeur de i une led s'allume puis s'eteint et une led reste allumée
     {
       digitalWrite(i,HIGH);
-      delay(100);
+      delay(10);
       digitalWrite(i,LOW);
       digitalWrite(13,HIGH);
-      delay(65);
+      
       
     }
 }
@@ -94,15 +60,16 @@ void AllLed(void)                  //toute les led s'allument puis s'eteignent e
     {
       digitalWrite(i,HIGH);
     }
- delay(100);
+ delay(50);
   for(i=4 ; i<=13 ; i++)
     {
       digitalWrite(i,LOW);
-    }     
+    } 
+ delay(50);       
 }
 
 
-void ChenilleDouble(void)                         // une led s'allume puis s'eteint puis une chenille demare de chaque coté
+void ChenilleDouble(void)                         // une chenille qui se divise en deux en partant du milieu 
 {
   digitalWrite(13, LOW);                          
   digitalWrite(12, LOW);
@@ -226,37 +193,64 @@ void ChenilleDouble(void)                         // une led s'allume puis s'ete
 }
 
 void LedUnSurN(int a)             //cette fonction prends en parametre un nombre "a" generer par le generateur de code 
-{int i=0;                         //une led s'allume parmi "a" led puis elles s'eteignent
+{
+  int i=0;                         //une led s'allume parmi "a" led puis elles s'eteignent
   for( i = 0; i<=9; i=i+a){
     digitalWrite(4+i, HIGH);
     
     }
-     delay(1000);
+     delay(70);
   for( i = 0; i<=9; i=i+a){
     digitalWrite(4+i, LOW);
     }
-    delay(500);
+    delay(30);
 }
 
 
 void LedChoix(int a)
 {
   digitalWrite(a+4, HIGH);
-  delay(50);
+  delay(70);
   digitalWrite(a+4, LOW);
-  delay(25);
+  delay(30);
 }
 
 
-void ledOff(void)     // cette fonction eteint toute les leds 
+void ledOff(void)     // Cette fonction eteint toutes les leds 
 {
   int i=0;
   for(i=4 ; i<=13 ; i++)
     {
       digitalWrite(i,LOW);
     }
+    delay(100);
 }
 
+
+
+void coeur_a_coeur(void)
+{ int i=0, j=0;
+   for(i=4;i<8;i++){
+  digitalWrite(i,HIGH);
+ }
+ digitalWrite(13,HIGH);
+ digitalWrite(8,HIGH);
+ delay(50);
+ for(i=4;i<8;i++){
+  digitalWrite(i,LOW);
+ }
+ digitalWrite(13,LOW);
+digitalWrite(8,LOW);
+
+for (j=8;j<=13;j++){
+  digitalWrite (j,HIGH);
+}
+delay(50);
+  for (j=8;j<=13;j++){
+  digitalWrite (j,LOW);
+  
+   }
+}
 
 void AllumageCoeur(int paramAllu, int n) //cette fonction prends en parametre deux constantes generer par le generateur de code dans param.h
 {
@@ -277,7 +271,7 @@ void AllumageCoeur(int paramAllu, int n) //cette fonction prends en parametre de
       
     case 4:
       switch(n)                        //dans ce cas n controle le sous-mode d'allumage
-        {
+      {
           case 1:
            Chenille();
            break;
@@ -291,7 +285,9 @@ void AllumageCoeur(int paramAllu, int n) //cette fonction prends en parametre de
            break;
            
         
-        }  
+      }
+   case 5:
+   coeur_a_coeur();  
   }  
 }
 

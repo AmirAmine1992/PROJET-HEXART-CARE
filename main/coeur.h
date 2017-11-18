@@ -1,11 +1,10 @@
 
 #ifndef COEUR_H
 #define COEUR_H
-
+void coeur_a_coeur(void);
 void ledOff(void);
 void AllumageCoeur(int paramAllu, int n);
 void set(void);
-void ChenilleSpecial(void);
 void Chenille(void);
 void AllLed(void);
 void ChenilleAmeliorer(void);
