@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1510780336 source:c:\users\dell\documents\github\generationcode\generationcode.c
+	<stdio.h>
+	<stdlib.h>
+	"GenerationCode.h"
+
+1510780217 c:\users\dell\documents\github\generationcode\generationcode.h
+
+1510769024 source:c:\users\dell\documents\github\generationcode\main.c
+	<conio.h>
+	"menu.h"
+
+1510769415 c:\users\dell\documents\github\generationcode\menu.h
+
+1510829113 source:c:\users\dell\documents\github\generationcode\menu.c
+	<stdio.h>
+	<stdlib.h>
+	"menu.h"
+	"GenerationCode.h"
+
