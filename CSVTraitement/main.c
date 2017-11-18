@@ -3,6 +3,7 @@
 
 #include "donnees.h"
 #include "actions.h"
+#include "menu.h"
 
 int main()
 {
